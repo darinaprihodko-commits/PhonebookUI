@@ -1,4 +1,4 @@
-package de.phonebook.tests;
+package de.phonebook.core;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -33,12 +33,12 @@ public class BaseHelper {
     }
 
     public boolean isAlertPresent() {
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.alertIsPresent());
-        if (alert == null) {
-            return false;
-        } else {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(3))
+                    .until(ExpectedConditions.alertIsPresent());
             return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 

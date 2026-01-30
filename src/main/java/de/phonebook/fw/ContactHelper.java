@@ -1,12 +1,14 @@
-package de.phonebook.tests;
+package de.phonebook.fw;
 
+import de.phonebook.core.BaseHelper;
+import de.phonebook.model.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ContactHelper extends BaseHelper{
+public class ContactHelper extends BaseHelper {
 
     public ContactHelper(WebDriver driver) {
         super(driver);
@@ -40,7 +42,7 @@ public class ContactHelper extends BaseHelper{
 
     public void removeContact() {
         click(By.cssSelector(".contact-item_card__2SOIM"));
-        click(By.xpath("//button[.='Remove']"));
+        click(By.xpath("//button[contains(.,'Remove')]"));
 
         if (isAlertPresent()) {
             driver.switchTo().alert().accept();

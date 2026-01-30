@@ -1,10 +1,13 @@
 package de.phonebook.tests;
 
+import de.phonebook.core.TestBase;
+import de.phonebook.model.Contact;
+import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class AddContactTests extends TestBase{
+public class AddContactTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
@@ -19,7 +22,7 @@ public class AddContactTests extends TestBase{
         app.getContact().fillContactForm(new Contact()
                 .setName("Oliver")
                 .setLastName("Kan")
-                .setPhone("1234567890")
+                .setPhone("12345678910")
                 .setEmail("kan@gm.com")
                 .setAddress("Berlin")
                 .setDescription("goalkeeper"));

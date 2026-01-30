@@ -1,7 +1,13 @@
-package de.phonebook.tests;
+package de.phonebook.fw;
 
+import de.phonebook.core.BaseHelper;
+import de.phonebook.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class UserHelper extends BaseHelper {
 
@@ -10,7 +16,10 @@ public class UserHelper extends BaseHelper {
     }
 
     public boolean isSignOutButtonPresent() {
-        return isElementPresent(By.xpath("//button[.='Sign Out']"));
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//button[text()='Sign Out']")));
+        return true;
     }
 
     public void clickOnRegistrationButton() {

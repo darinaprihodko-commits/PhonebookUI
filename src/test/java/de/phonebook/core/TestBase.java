@@ -1,4 +1,4 @@
-package de.phonebook.tests;
+package de.phonebook.core;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

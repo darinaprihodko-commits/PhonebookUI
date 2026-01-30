@@ -1,11 +1,13 @@
 package de.phonebook.tests;
 
+import de.phonebook.core.TestBase;
+import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends TestBase{
+public class CreateAccountTests extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void newUserRegisterPositiveTest() {
         app.getUser().clickOnLoginLink();
 

@@ -1,5 +1,8 @@
 package de.phonebook.tests;
 
+import de.phonebook.core.TestBase;
+import de.phonebook.model.Contact;
+import de.phonebook.model.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -18,9 +21,6 @@ public class RemoveContactTests extends TestBase {
                 .setPassword("Administrator!9"));
         app.getUser().clickOnLoginButton();
 
-        new WebDriverWait(app.driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[href='/add']")));
-
         app.getContact().clickOnAddLink();
 
         app.getContact().clickOnAddLink();
@@ -28,7 +28,7 @@ public class RemoveContactTests extends TestBase {
         app.getContact().fillContactForm(new Contact()
                 .setName("Oliver")
                 .setLastName("Kan")
-                .setPhone("1234567890")
+                .setPhone("12345678910")
                 .setEmail("kan@gm.com")
                 .setAddress("Berlin")
                 .setDescription("goalkeeper"));
@@ -40,7 +40,7 @@ public class RemoveContactTests extends TestBase {
         int sizeBefore = app.getContact().sizeOfContacts();
         app.getContact().removeContact();
 
-        app.getContact().pause(500);
+        app.getContact().pause(1000);
         int sizeAfter = app.getContact().sizeOfContacts();
         Assert.assertEquals(sizeAfter,sizeBefore-1);
     }

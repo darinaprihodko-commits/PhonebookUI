@@ -1,9 +1,11 @@
 package de.phonebook.tests;
 
+import de.phonebook.core.TestBase;
+import de.phonebook.model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTests extends TestBase{
+public class LoginTests extends TestBase {
 
     @Test
     public void loginPositiveTest() {
