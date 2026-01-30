@@ -12,36 +12,36 @@ public class RemoveContactTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        clickOnLoginLink();
-        fillLoginRegisterForm(new User()
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("darnedu@gmail.com")
                 .setPassword("Administrator!9"));
-        clickOnLoginButton();
+        app.getUser().clickOnLoginButton();
 
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(app.driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[href='/add']")));
 
-        clickOnAddLink();
+        app.getContact().clickOnAddLink();
 
-        clickOnAddLink();
+        app.getContact().clickOnAddLink();
 
-        fillContactForm(new Contact()
+        app.getContact().fillContactForm(new Contact()
                 .setName("Oliver")
                 .setLastName("Kan")
                 .setPhone("1234567890")
                 .setEmail("kan@gm.com")
                 .setAddress("Berlin")
                 .setDescription("goalkeeper"));
-        clickOnSaveButton();
+        app.getContact().clickOnSaveButton();
     }
 
     @Test
     public void deleteContactTest() {
-        int sizeBefore = sizeOfContacts();
-        removeContact();
+        int sizeBefore = app.getContact().sizeOfContacts();
+        app.getContact().removeContact();
 
-        pause(500);
-        int sizeAfter = sizeOfContacts();
+        app.getContact().pause(500);
+        int sizeAfter = app.getContact().sizeOfContacts();
         Assert.assertEquals(sizeAfter,sizeBefore-1);
     }
 
