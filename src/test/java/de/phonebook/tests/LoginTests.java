@@ -3,27 +3,24 @@ package de.phonebook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends TestBase{
+public class LoginTests extends TestBase{
 
     @Test
-    public void newUserRegisterPositiveTest() {
+    public void loginPositiveTest() {
         clickOnLoginLink();
-
         fillLoginRegisterForm(new User()
                 .setEmail("**@**.**")
                 .setPassword("********"));
-
-        clickOnRegistrationButton();
+        clickOnLoginButton();
         Assert.assertTrue(isSignOutButtonPresent());
     }
 
     @Test
-    public void existedUserRegisterNegativeTest() {
+    public void loginNegativeWithoutEmailTest() {
         clickOnLoginLink();
         fillLoginRegisterForm(new User()
-                .setEmail("**@**.**")
                 .setPassword("********"));
-        clickOnRegistrationButton();
+        clickOnLoginButton();
         Assert.assertTrue(isAlertPresent());
     }
 
