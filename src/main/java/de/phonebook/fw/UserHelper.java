@@ -16,10 +16,14 @@ public class UserHelper extends BaseHelper {
     }
 
     public boolean isSignOutButtonPresent() {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//button[text()='Sign Out']")));
-        return true;
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOfElementLocated(
+                            By.xpath("//button[contains(.,'Sign Out')]")));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void clickOnRegistrationButton() {
@@ -39,3 +43,4 @@ public class UserHelper extends BaseHelper {
         click(By.name("login"));
     }
 }
+

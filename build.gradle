@@ -19,3 +19,16 @@ dependencies {
 test {
     useTestNG()
 }
+
+task qa(type: Test) {
+    useTestNG()
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+
+    }
+}
+tasks.register("quick") {
+    group = "verification"
+    description = "Runs tests (quick suite)"
+    dependsOn("test")
+}

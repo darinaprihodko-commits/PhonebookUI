@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class ApplicationManager {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     UserHelper user;
     ContactHelper contact;
@@ -20,6 +20,7 @@ public class ApplicationManager {
     public void init() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+
         driver.get("https://telranedu.web.app");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

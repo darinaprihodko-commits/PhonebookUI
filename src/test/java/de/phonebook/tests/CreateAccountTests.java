@@ -10,12 +10,11 @@ public class CreateAccountTests extends TestBase {
     @Test(enabled = false)
     public void newUserRegisterPositiveTest() {
         app.getUser().clickOnLoginLink();
-
         app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("**@**.**")
                 .setPassword("********"));
+        app.getUser().clickOnLoginButton();
 
-        app.getUser().clickOnRegistrationButton();
         Assert.assertTrue(app.getUser().isSignOutButtonPresent());
     }
 
@@ -25,8 +24,8 @@ public class CreateAccountTests extends TestBase {
         app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("**@**.**")
                 .setPassword("********"));
-        app.getUser().clickOnRegistrationButton();
+        app.getUser().clickOnLoginButton();
+
         Assert.assertTrue(app.getUser().isAlertPresent());
     }
-
 }

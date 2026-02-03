@@ -11,8 +11,8 @@ public class LoginTests extends TestBase {
     public void loginPositiveTest() {
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new User()
-                .setEmail("**@**.**")
-                .setPassword("********"));
+                .setEmail("darnedu@gmail.com")
+                .setPassword("Administrator!9"));
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isSignOutButtonPresent());
     }

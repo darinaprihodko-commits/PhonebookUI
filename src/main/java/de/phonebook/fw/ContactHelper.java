@@ -31,7 +31,7 @@ public class ContactHelper extends BaseHelper {
         click(By.cssSelector("[href='/add']"));
     }
 
-    public boolean verifyContactByName(String text) {
+    public boolean verifyByName(String text)  {
         List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
         for (WebElement element: contacts) {
             if (element.getText().contains(text))
@@ -42,12 +42,9 @@ public class ContactHelper extends BaseHelper {
 
     public void removeContact() {
         click(By.cssSelector(".contact-item_card__2SOIM"));
-        click(By.xpath("//button[contains(.,'Remove')]"));
-
-        if (isAlertPresent()) {
-            driver.switchTo().alert().accept();
-        }
+        click(By.xpath("//button[.='Remove']"));
     }
+
 
     public int sizeOfContacts() {
         if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))) {

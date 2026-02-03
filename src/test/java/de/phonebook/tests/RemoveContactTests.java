@@ -3,13 +3,9 @@ package de.phonebook.tests;
 import de.phonebook.core.TestBase;
 import de.phonebook.model.Contact;
 import de.phonebook.model.User;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.time.Duration;
 
 public class RemoveContactTests extends TestBase {
 
@@ -22,9 +18,6 @@ public class RemoveContactTests extends TestBase {
         app.getUser().clickOnLoginButton();
 
         app.getContact().clickOnAddLink();
-
-        app.getContact().clickOnAddLink();
-
         app.getContact().fillContactForm(new Contact()
                 .setName("Oliver")
                 .setLastName("Kan")
@@ -42,7 +35,6 @@ public class RemoveContactTests extends TestBase {
 
         app.getContact().pause(1000);
         int sizeAfter = app.getContact().sizeOfContacts();
-        Assert.assertEquals(sizeAfter,sizeBefore-1);
+        Assert.assertEquals(sizeAfter, sizeBefore - 1);
     }
-
 }
